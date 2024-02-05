@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useSearchContext } from "../contexts/SearchContext";
-import { MdTravelExplore } from "react-icons/md";
+import { MdMyLocation, MdChildCare, MdPerson, MdDateRange } from "react-icons/md";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +38,7 @@ const SearchBar = () => {
     return (
         <form onSubmit={handleSubmit} className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-5 gap-4 p-4 lg:p-6 bg-gray-100 rounded-lg shadow-md">
             <div className="flex flex-row items-center bg-white p-2 rounded-lg">
-                <MdTravelExplore size={25} className="mr-2" />
+                <MdMyLocation size={25} className="mr-2" />
                 <input
                     placeholder="Where are you going?"
                     className="text-md w-full focus:outline-none"
@@ -48,6 +48,7 @@ const SearchBar = () => {
             </div>
             <div className="flex gap-2 bg-white p-2 rounded-lg">
                 <label className="flex items-center">
+                    <MdPerson size={25} className="mr-2" />
                     Adults:{" "}
                     <input
                         className="w-12 p-1 focus:outline-none font-bold"
@@ -59,6 +60,7 @@ const SearchBar = () => {
                     />
                 </label>
                 <label className="flex items-center">
+                    <MdChildCare size={25} className="mr-2" />
                     Children:{" "}
                     <input
                         className="w-12 p-1 focus:outline-none font-bold"
@@ -71,6 +73,7 @@ const SearchBar = () => {
                 </label>
             </div>
             <div>
+                <MdDateRange size={25} className="mr-2" />
                 <DatePicker
                     selected={checkIn}
                     onChange={(date) => setCheckIn(date as Date)}
@@ -85,6 +88,7 @@ const SearchBar = () => {
                 />
             </div>
             <div>
+                <MdDateRange size={25} className="mr-2" />
                 <DatePicker
                     selected={checkOut}
                     onChange={(date) => setCheckOut(date as Date)}
