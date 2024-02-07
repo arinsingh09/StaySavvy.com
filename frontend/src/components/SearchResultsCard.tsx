@@ -8,15 +8,15 @@ type Props = {
 
 const SearchResultsCard = ({ hotel }: Props) => {
     return (
-        <div className="grid grid-cols-1 xl:grid-cols-[2fr_3fr] border border-gray-300 rounded-lg p-8 gap-8">
-            <div className="w-full h-[300px] relative">
+        <div className="grid grid-cols-1 xl:grid-cols-[2fr,3fr] border border-gray-300 rounded-lg p-8 gap-8">
+            <div className="w-full h-[300px] xl:h-auto relative">
                 <img
                     src={hotel.imageURLs[0]}
                     className="w-full h-full object-cover object-center rounded-lg"
                     alt={hotel.name}
                 />
             </div>
-            <div className="grid grid-rows-[1fr_2fr_1fr] gap-4">
+            <div className="grid grid-rows-[auto,auto,auto] gap-4">
                 <div>
                     <div className="flex items-center">
                         {[...Array(hotel.starRating)].map((_, index) => (
