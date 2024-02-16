@@ -1,7 +1,7 @@
 import { useQuery } from "react-query";
 import { useSearchContext } from "../contexts/SearchContext";
 import * as apiClient from "../api-client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchResultsCard from "../components/SearchResultsCard";
 import Pagination from "../components/Pagination";
 import StarRatingFilter from "../components/StarRatingFilter";
@@ -31,6 +31,10 @@ const Search = () => {
         maxPrice: selectedPrice?.toString(),
         sortOption
     };
+
+    useEffect(() => {
+        setPage(1);
+    }, [selectedStars, selectedHotelTypes, selectedFacilities, selectedPrice, sortOption]);
 
     const { data: hotelData } = useQuery(["searchHotels", searchParams], () => apiClient.searchHotels(searchParams));
 
